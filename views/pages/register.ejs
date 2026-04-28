@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register — DevBlog</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background:#f8f8f2; color:#2f4f4f; font-family:Arial, sans-serif; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+        .card { background:#ffffff; padding:40px; border-radius:12px; width:100%; max-width:420px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { color:#2e8b57; margin-bottom:24px; text-align:center; }
+        input { width:100%; padding:12px; margin-bottom:16px; background:#f9f9f9; border:1px solid #ddd; border-radius:8px; color:#2f4f4f; font-size:1rem; }
+        button { width:100%; padding:12px; background:#2e8b57; border:none; border-radius:8px; color:white; font-size:1rem; cursor:pointer; }
+        button:hover { background:#228b22; }
+        p { text-align:center; margin-top:16px; color:#696969; }
+        a { color:#2e8b57; }
+        .error { background:#ffe6e6; border:1px solid #daa520; padding:10px; border-radius:8px; margin-bottom:16px; color:#800020; text-align:center; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Create Account</h2>
+
+        <% if (error) { %>
+            <div class="error"><%= error %></div>
+        <% } %>
+
+        <form action="/auth/register" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password (min 6 chars)" required />
+            <button type="submit">Register</button>
+        </form>
+
+        <p>Already have an account? <a href="/auth/login">Login</a></p>
+    </div>
+</body>
+</html>
